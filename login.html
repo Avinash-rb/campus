@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Crave - Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    
+    <!-- Load Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<!-- Your custom Firebase Authentication script -->
+<script src="/js/firebaseAuth.js"></script>
+
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Campus Crave</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">About Campus Crave</a></li>
+                <li><a href="#">View Menu</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login">
+        <div class="login-form">
+            <h2>Log In to Your Account</h2>
+            <form id="login-form">
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" required><br><br>
+
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required><br><br>
+
+                <button type="submit" class="btn login-btn">Log In</button>
+            </form>
+        </div>
+
+        <div class="login-image">
+            <img src="/images/meal1.jpg" alt="Delicious Meal">
+        </div>
+    </section>
+<!-- Firebase Auth Script -->
+
+    <script>
+        // Listen for form submit
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();  // Prevent default form submission
+
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Call loginUser function from firebaseAuth.js
+            loginUser(email, password)
+                .then(() => {
+                    alert("Login successful!");
+                    window.location.href = 'meals.html';  // Redirect on success
+                })
+                .catch((error) => {
+                    alert("Login failed: " + error.message);
+                });
+        });
+    </script>
+    <script src="/js/firebaseAuth.js"></script>
+</body>
+</html>

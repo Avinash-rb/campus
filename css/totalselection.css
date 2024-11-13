@@ -1,0 +1,13 @@
+.totalselection-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.bhaji-stats-item {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.bhaji-stats-item strong {
+    font-weight: bold;
+}

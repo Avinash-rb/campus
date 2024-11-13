@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Selection - Bhaji Stats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/totalselection.css">
+    
+    <!-- Load Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script src="js/firebaseauth.js"></script>
+    <script src="/js/subscription.js"></script>
+    <!-- <script src="js/totalselection.js"></script> -->
+
+    <style>
+        .bhaji-data {
+            font-size: 30px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Campus Crave - Total Selection</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="menu.html">View Menu</a></li>
+                <li><a href="subscription.html">Subscription</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="totalselection-container">
+        <h2>Total Bhaji Selections</h2>
+        <p>View the number of bhajis selected by all users</p>
+
+        <div class="bhaji-data" id="bhaji-stats">
+            <!-- Bhaji stats will be dynamically populated here -->
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <button onclick="Reset()"
+            style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            Reset the List of Items
+        </button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Campus Crave</p>
+    </footer>
+
+    <script>
+        // Retrieve the dish array from localStorage and parse it
+        const dishArray = JSON.parse(localStorage.getItem('dishArray')) || [];
+        
+        let listHtml = ``;
+        for(let i = 0; i < dishArray.length; ++i) {
+           listHtml += `${dishArray[i].name} : ${dishArray[i].frequency}
+           <br>`;
+        }
+
+        document.getElementById("bhaji-stats").innerHTML = listHtml;
+
+        function Reset() {
+    const arr = JSON.parse(localStorage.getItem('dishArray')) || [];
+    while (arr.length > 0) {
+        arr.pop();
+    }
+
+    // Save the empty array back to localStorage
+    localStorage.setItem('dishArray', JSON.stringify(arr));
+
+    // Update the page content to reflect the reset
+    document.getElementById("bhaji-stats").innerHTML = '';
+}
+
+
+    </script>
+</body>
+</html>

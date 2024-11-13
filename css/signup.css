@@ -1,0 +1,70 @@
+/* Body styling for Signup Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff7ee;
+    margin: 0;
+    /* Remove padding-top to avoid overlap with the header */
+}
+
+/* Container for signup box and image */
+.signup-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Space between signup form and image */
+    padding-top: 100px; /* Adds space from the top to avoid overlap with the fixed header */
+}
+
+.signup-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+.signup-container h2 {
+    color: #b22222;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="email"],
+.signup-container input[type="password"],
+.signup-container input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.signup-container button {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 14px 0;
+    margin-top: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.signup-container button:hover {
+    background-color: #218838;
+}
+
+/* Image styling */
+.signup-image {
+    width: 600px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}

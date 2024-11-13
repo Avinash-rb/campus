@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Crave - Monthly Meal Plans</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/subscription.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- Firebase initialization and auth handling -->
+    <script src="js/firebaseauth.js"></script>
+    
+    <!-- Subscription plan handling -->
+    <script src="js/subscription.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Campus Crave</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="menu.html">View Menu</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="subscription-container">
+        <div class="subscription-header">
+            <h1>Monthly Meal Plans</h1>
+            <p>Choose your perfect monthly meal plan with customized bhaji options</p>
+        </div>
+
+        <div class="plans-container">
+            <!-- Platinum Plan -->
+            <div class="plan-card platinum">
+                <span class="popular-tag">Most Popular</span>
+                <h2 class="plan-name">Platinum</h2>
+                <div class="plan-price">₹5000<span>/month</span></div>
+                <div class="bhaji-limit">Select any 3 Bhajis daily!</div>
+                <ul class="plan-features">
+                    <li>Unlimited Rice & Roti</li>
+                    <li>Choose any 3 Bhajis daily</li>
+                    <li>Special Weekend Menu</li>
+                    <li>Premium Dal Varieties</li>
+                    <li>Special Festival Menu</li>
+                    <li>Monthly Special Chef's Dish</li>
+                    <li>Priority Serving</li>
+                </ul>
+                <button class="select-plan-btn" onclick={Platinum()}>Select Plan</button>
+            </div>
+
+            <!-- Gold Plan -->
+            <div class="plan-card gold">
+                <h2 class="plan-name">Gold</h2>
+                <div class="plan-price">₹4500<span>/month</span></div>
+                <div class="bhaji-limit">Select any 2 Bhajis daily!</div>
+                <ul class="plan-features">
+                    <li>Unlimited Rice & Roti</li>
+                    <li>Choose any 2 Bhajis daily</li>
+                    <li>Weekend Special Menu</li>
+                    <li>Regular Dal Varieties</li>
+                    <li>Festival Special Menu</li>
+                    <li>Standard Serving</li>
+                </ul>
+                <button class="select-plan-btn" onclick={Gold()}>Select Plan</button>
+            </div>
+
+            <!-- Silver Plan -->
+            <div class="plan-card silver">
+                <h2 class="plan-name">Silver</h2>
+                <div class="plan-price">₹4100<span>/month</span></div>
+                <div class="bhaji-limit">Select any 1 Bhaji daily!</div>
+                <ul class="plan-features">
+                    <li>Unlimited Rice & Roti</li>
+                    <li>Choose any 1 Bhaji daily</li>
+                    <li>Basic Dal Varieties</li>
+                    <li>Standard Menu</li>
+                    <li>Regular Serving</li>
+                </ul>
+                <button class="select-plan-btn" onclick={Silver()}>Select Plan</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Campus Crave</p>
+    </footer>
+
+    <script>
+
+        function Platinum() {
+           let previous = 3;
+           localStorage.setItem("previous", previous);
+           window.location.href = 'SubscriptionAddedPage.html';
+        }
+
+        function Gold() {
+            let previous = 2;
+            localStorage.setItem("previous", previous);
+            window.location.href = 'SubscriptionAddedPage.html';
+        }
+
+        function Silver() {
+            let previous = 1;
+            localStorage.setItem("previous", previous);
+            window.location.href = 'SubscriptionAddedPage.html';
+        }
+
+    </script>
+
+</body>
+</html>
